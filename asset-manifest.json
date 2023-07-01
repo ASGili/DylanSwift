@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/DylanSwift/static/css/main.bfa78420.css",
-    "main.js": "/DylanSwift/static/js/main.51b8c0f4.js",
+    "main.css": "/DylanSwift/static/css/main.8f8cf6be.css",
+    "main.js": "/DylanSwift/static/js/main.200fff8c.js",
     "index.html": "/DylanSwift/index.html",
-    "main.bfa78420.css.map": "/DylanSwift/static/css/main.bfa78420.css.map",
-    "main.51b8c0f4.js.map": "/DylanSwift/static/js/main.51b8c0f4.js.map"
+    "main.8f8cf6be.css.map": "/DylanSwift/static/css/main.8f8cf6be.css.map",
+    "main.200fff8c.js.map": "/DylanSwift/static/js/main.200fff8c.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfa78420.css",
-    "static/js/main.51b8c0f4.js"
+    "static/css/main.8f8cf6be.css",
+    "static/js/main.200fff8c.js"
   ]
 }
