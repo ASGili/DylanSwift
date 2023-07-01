@@ -1,12 +1,23 @@
+import { useEffect, useState } from "react";
+
 interface Lyrics{
-    lyrics: string;
+    lyrics: Array<string>;
 }
 
 const Lyrics:React.FC<Lyrics> = ({lyrics})=> {
 
-    return (      
-    <blockquote>
-    <p>{lyrics}</p>
+    const [lyricsBlock, setLyricsBlock] = useState<Array<any>>([])
+
+    useEffect(() => {
+        if (lyrics) {
+            setLyricsBlock(lyrics.map((line) => <p>{line}</p>));
+        }
+    }, [lyrics]);
+
+    
+    return (   
+    <blockquote className="lyrics-quote">   
+        {lyricsBlock}
     </blockquote>
     )
 }

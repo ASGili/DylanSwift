@@ -51,7 +51,7 @@ margin-left: 5vh;
 }
 
 .guess-button:active{
-  transform: translateY(4px);
+  transform: translateY(-4px);
 }
 
 .button-image{
@@ -59,4 +59,9 @@ margin-left: 5vh;
   max-height: 12em;
   margin: 1ch;
   border: solid 1px black
+}
+
+.lyrics-quote{
+  border: solid white 0.5ch;
+  min-height: 50%;
 }

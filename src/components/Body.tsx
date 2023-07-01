@@ -5,23 +5,62 @@ import NewButton from "./NewButton";
 import { ListFormat } from "typescript";
 
 const Body = ()=> {
-   const [lyrics , setLyrics] = useState<string>("")
+   const [lyrics , setLyrics] = useState<Array<string>>([])
+   const [song, setSong] = useState<Array<Array<string>>>([]) 
+   const [allSongs, setAllSongs] = useState<any>("")
    const [artist , setArtist] = useState<string>("")
-   const [data, setData] = useState<any>([])
 
 
     useEffect(()=>{
+        chooseRandomArtist()
+    },[])
+
+    useEffect(()=>{
+        getArtistData()
+    },[artist])
+
+    useEffect(()=>{
+        chooseRandomSong()
+    },[allSongs])
+
+    useEffect(()=>{
+        chooseRandomStanza()
+    }, [song])
+
+    const chooseRandomArtist = ()=> {
         let rand = Math.random()
         if (rand > 0.5){setArtist("Dylan")}
         else {setArtist("Swift")}
-    },[])
+    }
 
-    useEffect(()=>{
-        getData()
-    },[])
+    const getArtistData = ()=> {
+        if (artist == "Dylan"){
+            getDataDylan()} 
+        else if (artist == "Swift"){
+            getDataSwift() 
+        }
+    }
 
-    const getData= ()=>{
-        fetch("DylanSongs.json").then(res => res.json()).then(res => setData(res))
+    const getDataDylan= ()=>{
+        fetch("DylanSongs.json").then(res => res.json()).then(res => setAllSongs(res))
+    }
+
+    const getDataSwift= ()=>{
+        fetch("SwiftSongs.json").then(res => res.json()).then(res => setAllSongs(res))
+    }
+
+    const chooseRandomSong= ()=>{
+        if(allSongs){
+            let chosenSong = allSongs[Math.floor(Math.random()*allSongs.length)]
+            console.log(chosenSong.lyrics)
+            if (chosenSong.lyrics.length !== 0){
+            setSong(chosenSong.lyrics)} else{chooseRandomSong()}
+            } 
+    }
+
+    const chooseRandomStanza= ()=>{
+        let chosenStanza:Array<string> = song[Math.floor(Math.random()*song.length)]
+        setLyrics(chosenStanza)
     }
 
     return (    
