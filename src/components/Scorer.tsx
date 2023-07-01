@@ -1,16 +1,16 @@
 interface score{
     score:number;
-    skips:number;
+    turns:number;
 }
 
-const Scorer:React.FC<score> = ({score, skips})=> {
+const Scorer:React.FC<score> = ({score, turns})=> {
 
 
 
     return(
       <div className="button-flex">
       <section className="scorer-text">Your score: {score}</section>
-      <section className="scorer-text">Number of skips: {skips}</section>
+      <section className="scorer-text">Number of turns: {turns}</section>
       </div>  
     )
 }

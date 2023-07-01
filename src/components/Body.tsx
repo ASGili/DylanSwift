@@ -11,7 +11,7 @@ const Body = ()=> {
    const [allSongs, setAllSongs] = useState<any>("")
    const [artist , setArtist] = useState<string>("")
    const [score, setScore] = useState<number>(0)
-   const [skips, setSkips] = useState<number>(0)
+   const [turns, setTurns] = useState<number>(0)
 
 
     useEffect(()=>{
@@ -67,7 +67,7 @@ const Body = ()=> {
 
 
     const getNewLyrics = ()=>{
-        setSkips(skips+1)
+        setTurns(turns+1)
         chooseRandomArtist()
         getAllSongsByArtist()
         chooseRandomSong()
@@ -95,7 +95,7 @@ const Body = ()=> {
     <GuessButton makeGuess={makeGuess} imagePath="DylanFace.jpg" buttonName="Dylan"/>
     </div>
     <NewLyricsButton getNewLyrics={getNewLyrics} buttonName="Get New Lyrics" />
-    <Scorer score={score} skips={skips}/>
+    <Scorer score={score} turns={turns}/>
     </div>
     )
 }
