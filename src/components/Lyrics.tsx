@@ -10,14 +10,14 @@ const Lyrics:React.FC<Lyrics> = ({lyrics})=> {
 
     useEffect(() => {
         if (lyrics) {
-            setLyricsBlock(lyrics.map((line) => <p>{line}</p>));
+            setLyricsBlock(lyrics.map((line,index) => <p key={index.toString()}>{line}</p>));
         }
     }, [lyrics]);
 
     
     return (   
     <blockquote className="lyrics-quote">   
-        {lyricsBlock}
+        <section className="quote-block">{lyricsBlock}</section>
     </blockquote>
     )
 }

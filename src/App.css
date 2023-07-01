@@ -32,6 +32,9 @@ body {
 
 .content-body{
 margin-left: 5vh;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .title{
@@ -61,7 +64,17 @@ margin-left: 5vh;
   border: solid 1px black
 }
 
+.button-flex{
+  display:flex;
+  flex-direction: row;
+}
+
 .lyrics-quote{
   border: solid white 0.5ch;
   min-height: 50%;
+  margin: 2ch;
+}
+
+.quote-block{
+  padding: 2ch;
 }

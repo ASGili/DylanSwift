@@ -65,10 +65,12 @@ const Body = ()=> {
 
     return (    
     <div className="content-body">
-    <h2>Is it Tay Tay or Bobby D?</h2>
+    <h1>Is it Tay Tay or Bobby D?</h1>
     <Lyrics lyrics={lyrics} />
+    <div className="button-flex">
     <GuessButton imagePath="SwiftFace.jpg" buttonName="Taylor Swift"/>
     <GuessButton imagePath="DylanFace.jpg" buttonName="Bob Dylan"/>
+    </div>
     <NewButton buttonName="Get New Lyrics" />
     </div>
     )
