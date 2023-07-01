@@ -16,7 +16,7 @@ const Body = ()=> {
     },[])
 
     useEffect(()=>{
-        getArtistData()
+        getAllSongsByArtist()
     },[artist])
 
     useEffect(()=>{
@@ -33,7 +33,7 @@ const Body = ()=> {
         else {setArtist("Swift")}
     }
 
-    const getArtistData = ()=> {
+    const getAllSongsByArtist = ()=> {
         if (artist == "Dylan"){
             getDataDylan()} 
         else if (artist == "Swift"){
@@ -52,7 +52,6 @@ const Body = ()=> {
     const chooseRandomSong= ()=>{
         if(allSongs){
             let chosenSong = allSongs[Math.floor(Math.random()*allSongs.length)]
-            console.log(chosenSong.lyrics)
             if (chosenSong.lyrics.length !== 0){
             setSong(chosenSong.lyrics)} else{chooseRandomSong()}
             } 
@@ -61,7 +60,17 @@ const Body = ()=> {
     const chooseRandomStanza= ()=>{
         let chosenStanza:Array<string> = song[Math.floor(Math.random()*song.length)]
         setLyrics(chosenStanza)
+        console.log(chosenStanza)
     }
+
+
+    const getNewLyrics = ()=>{
+        chooseRandomArtist()
+        getAllSongsByArtist()
+        chooseRandomSong()
+        chooseRandomStanza()
+    }
+
 
     return (    
     <div className="content-body">
@@ -71,7 +80,7 @@ const Body = ()=> {
     <GuessButton imagePath="SwiftFace.jpg" buttonName="Taylor Swift"/>
     <GuessButton imagePath="DylanFace.jpg" buttonName="Bob Dylan"/>
     </div>
-    <NewButton buttonName="Get New Lyrics" />
+    <NewButton getNewLyrics={getNewLyrics} buttonName="Get New Lyrics" />
     </div>
     )
 }
