@@ -1,12 +1,15 @@
+body {
+  background-color: mediumorchid;
+}
+
 .app-header {
-  background-color: orchid;
+  background-color: mediumorchid;
   border-bottom: double 5dvh white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 1.75em;
   font-style: oblique;
-  color: white;
   padding-left: 1em;
   padding-right: 10lvh;
 }
@@ -27,7 +30,33 @@
   justify-content: center;
 }
 
-body {
-  background-color: mediumorchid;
+.content-body{
+margin-left: 5vh;
 }
 
+.title{
+  margin: 0;
+}
+
+.guess-button {
+  max-height: 25em;
+  max-width: 25em;
+  border: outset orchid 6px;
+  margin-right: 2lvh;
+  font-size: 18px;
+}
+
+.guess-button:hover{
+  background-color: gray;
+}
+
+.guess-button:active{
+  transform: translateY(4px);
+}
+
+.button-image{
+  max-width: 12em;
+  max-height: 12em;
+  margin: 1ch;
+  border: solid 1px black
+}
