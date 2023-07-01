@@ -82,3 +82,7 @@ align-items: center;
 .quote-block{
   padding: 1ch;
 }
+
+.scorer-text{
+  margin-right: 1em;
+}

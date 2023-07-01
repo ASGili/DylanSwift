@@ -1,9 +1,9 @@
-interface NewButton{
+interface NewLyricsButton{
     buttonName: string;
     getNewLyrics: React.MouseEventHandler<HTMLElement>;
 }
 
-const NewButton:React.FC<NewButton> = ({buttonName, getNewLyrics})=>{
+const NewLyricsButton:React.FC<NewLyricsButton> = ({buttonName, getNewLyrics})=>{
 
     return(
         <button onClick={getNewLyrics} className="guess-button">
@@ -11,4 +11,4 @@ const NewButton:React.FC<NewButton> = ({buttonName, getNewLyrics})=>{
         </button>
     )
 }
-export default NewButton
+export default NewLyricsButton

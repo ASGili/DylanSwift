@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Lyrics from "./Lyrics";
 import GuessButton from "./GuessButton";
-import NewButton from "./NewButton";
+import NewLyricsButton from "./NewLyricsButton";
+import Scorer from "./Scorer";
 import { ListFormat } from "typescript";
 
 const Body = ()=> {
@@ -9,6 +10,8 @@ const Body = ()=> {
    const [song, setSong] = useState<Array<Array<string>>>([]) 
    const [allSongs, setAllSongs] = useState<any>("")
    const [artist , setArtist] = useState<string>("")
+   const [score, setScore] = useState<number>(0)
+   const [skips, setSkips] = useState<number>(0)
 
 
     useEffect(()=>{
@@ -60,16 +63,27 @@ const Body = ()=> {
     const chooseRandomStanza= ()=>{
         let chosenStanza:Array<string> = song[Math.floor(Math.random()*song.length)]
         setLyrics(chosenStanza)
-        console.log(chosenStanza)
     }
 
 
     const getNewLyrics = ()=>{
+        setSkips(skips+1)
         chooseRandomArtist()
         getAllSongsByArtist()
         chooseRandomSong()
         chooseRandomStanza()
     }
+
+    const makeGuess = (event:React.MouseEvent) => {
+        if(event.currentTarget.textContent == artist){
+            setScore(score + 1)
+            getNewLyrics()
+        }else{
+            console.log("WRONG!")
+            getNewLyrics()
+        }
+    }
+
 
 
     return (    
@@ -77,10 +91,11 @@ const Body = ()=> {
     <h1 className="headline">Is it Tay Tay or Bobby D?</h1>
     <Lyrics lyrics={lyrics} />
     <div className="button-flex">
-    <GuessButton imagePath="SwiftFace.jpg" buttonName="Taylor Swift"/>
-    <GuessButton imagePath="DylanFace.jpg" buttonName="Bob Dylan"/>
+    <GuessButton makeGuess={makeGuess} imagePath="SwiftFace.jpg" buttonName="Swift"/>
+    <GuessButton makeGuess={makeGuess} imagePath="DylanFace.jpg" buttonName="Dylan"/>
     </div>
-    <NewButton getNewLyrics={getNewLyrics} buttonName="Get New Lyrics" />
+    <NewLyricsButton getNewLyrics={getNewLyrics} buttonName="Get New Lyrics" />
+    <Scorer score={score} skips={skips}/>
     </div>
     )
 }

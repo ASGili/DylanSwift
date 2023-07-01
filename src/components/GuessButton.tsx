@@ -1,12 +1,13 @@
 interface GuessButton{
     buttonName: string;
     imagePath: string;
+    makeGuess: React.MouseEventHandler;
 }
 
-const GuessButton:React.FC<GuessButton> = ({buttonName, imagePath})=>{
+const GuessButton:React.FC<GuessButton> = ({buttonName, imagePath, makeGuess})=>{
 
     return(
-        <button className="guess-button">
+        <button onClick={makeGuess} className="guess-button">
             <img className="button-image" src={imagePath} />
             <p>{buttonName}</p>
         </button>
