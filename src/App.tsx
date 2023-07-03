@@ -1,22 +1,25 @@
 import React, {Dispatch, SetStateAction} from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import './App.css';
-import { useState } from 'react';
-import Body from './components/Body';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Header from './containers/Header';
+import Footer from './containers/Footer';
+import Body from './containers/Body';
+import Leaderboard from './containers/Leaderboard';
+import './App.css';
+
+
 
 function App() {
 
   return (
     <div className="App">
-            <Header />
+    <Header />
       <Router>
       <Routes>
-        <Route path="DylanSwift/" element={<Body />} />
+        <Route path="/DylanSwift/" element={<Body />} />
+        <Route path="/DylanSwift/Leaderboard/" element={<Leaderboard />} />
       </Routes>
       </Router>
-      <Footer />
+    <Footer />
     </div>
   );
 }

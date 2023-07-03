@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import Lyrics from "./Lyrics";
-import GuessButton from "./GuessButton";
-import NewLyricsButton from "./NewLyricsButton";
-import Scorer from "./Scorer";
-import { ListFormat } from "typescript";
+import Lyrics from "../components/Lyrics";
+import GuessButton from "../components/GuessButton";
+import NewLyricsButton from "../components/NewLyricsButton";
+import Scorer from "../components/Scorer";
 
 const Body = ()=> {
    const [lyrics , setLyrics] = useState<Array<string>>([])
-   const [song, setSong] = useState<Array<Array<string>>>([]) 
+   const [song, setSong] = useState<Array<Array<string>>>([[]]) 
    const [allSongs, setAllSongs] = useState<any>("")
    const [artist , setArtist] = useState<string>("")
    const [score, setScore] = useState<number>(0)
@@ -88,14 +87,14 @@ const Body = ()=> {
 
     return (    
     <div className="content-body">
-    <h1 className="headline">Is it Tay Tay or Bobby D?</h1>
-    <Lyrics lyrics={lyrics} />
-    <div className="button-flex">
-    <GuessButton makeGuess={makeGuess} imagePath="SwiftFace.jpg" buttonName="Swift"/>
-    <GuessButton makeGuess={makeGuess} imagePath="DylanFace.jpg" buttonName="Dylan"/>
-    </div>
-    <NewLyricsButton getNewLyrics={getNewLyrics} buttonName="Get New Lyrics" />
-    <Scorer score={score} turns={turns}/>
+        <h1 className="headline">Is it Tay Tay or Bobby D?</h1>
+            <div className="button-flex">
+                <GuessButton makeGuess={makeGuess} imagePath="SwiftFace.jpg" buttonName="Swift"/>
+                <Lyrics lyrics={lyrics} />
+                <GuessButton makeGuess={makeGuess} imagePath="DylanFace.jpg" buttonName="Dylan"/>
+            </div>
+            <NewLyricsButton getNewLyrics={getNewLyrics} buttonName="Get New Lyrics" />
+            <Scorer score={score} turns={turns}/>
     </div>
     )
 }
